@@ -58,11 +58,11 @@ Methods
     This method adds a new range to the in-memory ipfilter.
 
   $filter->add_rule( $lower, $upper, $access_level, $description )
-    This method coerces the arguments into a new range which is the added to
+    This method coerces the arguments into a new rule which is then added to
     the in-memory ipfilter.
 
   $filter->count_rules( )
-    Returns how many rules are loaded.
+    Returns a tally of all loaded rules.
 
   $filter->is_empty( )
     Returns a boolean value indicating whether or not there are any rules
@@ -72,21 +72,28 @@ Methods
     Deletes all rules from the ipfilter.
 
   $filter->load( $path )
-    Slurps an ipfilter.dat-like file and adds the rules found inside to the
-    ipfilter.
+    Slurps an "ipfilter.dat"-like file and adds the rules found inside to
+    the ipfilter.
 
   $filter->save( $path )
     Stores the in-memory ipfilter to disk.
 
   $filter->is_banned( $ip )
-    Indicates whether or not $ip is banned. If so, the rule in which it was
-    found is returned. If not, a false value is returned. Currently, rules
-    with an access_level at or below 127 are considered banned.
+    If $ip is banned, the first rule in which it was found below the
+    threshold is returned.
+
+    If not, a false value is returned. Currently, rules with an access_level
+    at or below 127 are considered banned.
 
 IPv6 Support
     The standard ipfilter.dat only supports IPv4 addresses but
     Net::BitTorrent's current implementation supports IPv6 as well. Keep
     this in mind when storing an ipfilter.dat file to disk.
+
+Notes
+    This is a very good example of code which should not require Moose. In a
+    future version, I hope to switch to Moo. ...when "coerce" works to some
+    degree.
 
 See Also
     Emule Project's ipfilter.dat documentation

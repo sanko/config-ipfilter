@@ -8,7 +8,7 @@ package Config::IPFilter;
     has rules => (isa      => 'ArrayRef[Config::IPFilter::Rule]',
                   is       => 'ro',
                   traits   => ['Array'],
-                  init_arg => undef,
+                  init_arg => undef, # XXX - In the future, allow this
                   default  => sub { [] },
                   handles  => {
                               add_rule            => 'push',
@@ -81,6 +81,9 @@ package Config::IPFilter;
             }
         ) || ();
     }
+
+    #
+    no Moose;
 }
 1;
 
@@ -153,12 +156,12 @@ ipfilter.
 
 =head2 $filter->B<add_rule>( $lower, $upper, $access_level, $description )
 
-This method coerces the arguments into a new L<range|Config::IPFilter::Rule>
-which is the added to the in-memory ipfilter.
+This method coerces the arguments into a new L<rule|Config::IPFilter::Rule>
+which is then added to the in-memory ipfilter.
 
 =head2 $filter->B<count_rules>( )
 
-Returns how many L<rule|Config::IPFilter::Rule>s are loaded.
+Returns a tally of all loaded L<rule|Config::IPFilter::Rule>s.
 
 =head2 $filter->B<is_empty>( )
 
@@ -171,8 +174,8 @@ Deletes all L<rule|Config::IPFilter::Rule>s from the ipfilter.
 
 =head2 $filter->B<load>( $path )
 
-Slurps an ipfilter.dat-like file and adds the L<rule|Config::IPFilter::Rule>s
-found inside to the ipfilter.
+Slurps an C<ipfilter.dat>-like file and adds the
+L<rule|Config::IPFilter::Rule>s found inside to the ipfilter.
 
 =head2 $filter->B<save>( $path )
 
@@ -180,9 +183,10 @@ Stores the in-memory ipfilter to disk.
 
 =head2 $filter->B<is_banned>( $ip )
 
-Indicates whether or not C<$ip> is banned. If so, the
-L<rule|Config::IPFilter::Rule> in which it was found is returned. If not, a
-false value is returned. Currently, rules with an
+If C<$ip> is banned, the first L<rule|Config::IPFilter::Rule> in which it was
+found below the threshold is returned.
+
+If not, a false value is returned. Currently, rules with an
 L<< access_level|Config::IPFilter::Rule/"$filter->B<access_level>( )" >> at or
 below C<127> are considered banned.
 
@@ -191,6 +195,12 @@ below C<127> are considered banned.
 The standard ipfilter.dat only supports IPv4 addresses but
 L<Net::BitTorrent>'s current implementation supports IPv6 as well. Keep this
 in mind when L<storing|/save> an ipfilter.dat file to disk.
+
+=head1 Notes
+
+This is a very good example of code which should not require L<Moose|Moose>.
+In a future version, I hope to switch to L<Moo|Moo>. ...when C<coerce> works
+to some degree.
 
 =head1 See Also
 
