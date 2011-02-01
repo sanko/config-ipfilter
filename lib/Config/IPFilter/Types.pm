@@ -1,7 +1,7 @@
 package Config::IPFilter::Types;
 {
     use Moose::Util::TypeConstraints;
-    our $MAJOR = 0; our $MINOR = 99; our $DEV = 0; our $VERSION = sprintf('%0d.%02d' . ($DEV ? (($DEV < 0 ? '' : '_') . '%03d') : ('')), $MAJOR, $MINOR, abs $DEV);
+    our $MAJOR = 1; our $MINOR = 0; our $DEV = 0; our $VERSION = sprintf('%0d.%02d' . ($DEV ? (($DEV < 0 ? '' : '_') . '%03d') : ('')), $MAJOR, $MINOR, abs $DEV);
 
     # IPv6 packed address
     subtype 'Config::IPFilter::Types::Paddr' => as 'Str' =>

@@ -1,7 +1,7 @@
 package Config::IPFilter;
 {
     use Moose;
-    our $MAJOR = 0; our $MINOR = 99; our $DEV = 0; our $VERSION = sprintf('%0d.%02d' . ($DEV ? (($DEV < 0 ? '' : '_') . '%03d') : ('')), $MAJOR, $MINOR, abs $DEV); use lib '../';
+    our $MAJOR = 1; our $MINOR = 00; our $DEV = 0; our $VERSION = sprintf('%0d.%02d' . ($DEV ? (($DEV < 0 ? '' : '_') . '%03d') : ('')), $MAJOR, $MINOR, abs $DEV);
     use Config::IPFilter::Types;
 
     #
