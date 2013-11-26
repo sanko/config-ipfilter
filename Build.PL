@@ -61,7 +61,7 @@ my $mb = $class->new(
              },
              repository => {
                        url => 'git://github.com/sanko/config-ipfilter.git',
-                       web => 'http://github.com/sanko/config-ipfilter/tree/',
+                       web => 'http://github.com/sanko/config-ipfilter',
                        type => 'git'
              },
              ChangeLog => 'http://github.com/sanko/config-ipfilter/commits/',
