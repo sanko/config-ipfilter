@@ -1,0 +1,77 @@
+{
+   "abstract" : "IPFilter.dat parser",
+   "author" : [
+      "Sanko Robinson <sanko@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4211",
+   "keywords" : [
+      "BitTorrent",
+      "eMule",
+      "IP",
+      "Filter",
+      "IPFilter.dat"
+   ],
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Config-IPFilter",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "CPAN::Meta::Converter" : "0",
+            "CPAN::Meta::Validator" : "0",
+            "Exporter" : "0",
+            "File::Path" : "2.07",
+            "File::Spec" : "0",
+            "File::Temp" : "0",
+            "JSON" : "0",
+            "Module::Build" : "0.3",
+            "Perl::Tidy" : "0",
+            "TAP::Harness" : "3.18",
+            "Test::Class" : "0.35",
+            "Test::Exception" : "0",
+            "Test::Most" : "0",
+            "perl" : "v5.10.0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.36"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Moose" : "0",
+            "perl" : "v5.10.0"
+         }
+      }
+   },
+   "provides" : {
+      "Config::IPFilter" : {
+         "file" : "lib/Config/IPFilter.pm",
+         "version" : "1.00"
+      },
+      "Config::IPFilter::Rule" : {
+         "file" : "lib/Config/IPFilter/Rule.pm",
+         "version" : "1.00"
+      },
+      "Config::IPFilter::Types" : {
+         "file" : "lib/Config/IPFilter/Types.pm",
+         "version" : "1.00"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://sankorobinson.com/config-ipfilter/",
+      "license" : [
+         "http://opensource.org/licenses/artistic-license-2.0.php"
+      ],
+      "x_ChangeLog" : "http://github.com/sanko/config-ipfilter/commits/"
+   },
+   "version" : "1.00"
+}

@@ -6,6 +6,7 @@ lib/Config/IPFilter/Rule.pm
 lib/Config/IPFilter/Types.pm
 MANIFEST			This list of files
 META.json
+META.yml
 README
 t/000_basic/Config/IPFilter.t
 t/000_basic/Config/IPFilter/Rule.t

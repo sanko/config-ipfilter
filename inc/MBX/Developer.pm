@@ -95,11 +95,7 @@ package inc::MBX::Developer;
 
         # start changing the data around
         $CHANGES_D =~ s[.+(\r?\n)][$dist$1];
-        $CHANGES_D
-            =~ s[(_ -.-. .... .- -. --. . ... _+).*][$1 . sprintf <<'END',
-        $self->{'properties'}{'meta_merge'}{'resources'}{'ChangeLog'}||'', '$',
-        $self->dist_version , qw[$ $ $ $ $ $ $]
-    ]se;
+        $CHANGES_D =~ s[(_ -.-. .... .- -. --. . ... _+).*][$1 . sprintf <<'END', $self->{'properties'}{'meta_merge'}{'resources'}{'ChangeLog'}||'', '$', $self->dist_version , qw[$ $ $ $ $ $ $] ]se;
 
 For more information, see the commit log:
     %s
